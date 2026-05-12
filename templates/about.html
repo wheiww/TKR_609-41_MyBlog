@@ -1,0 +1,25 @@
+{% extends "base_layout.html" %}
+{% block title %}О нас{% endblock title %}
+{% block content %}
+<main>
+    <div class="about">
+        <h1>{{ header }}</h1>
+        <div class="about__block">
+            <h2>👤 Руководитель</h2>
+            <p>{{ director.name }}</p>
+        </div>
+        <div class="about__block">
+            <h2>👥 Команда</h2>
+            {% for member in staff %}
+            <p>{{ member }}</p>
+            {% endfor %}
+        </div>
+        <div class="about__block">
+            <h2>📍 Адрес</h2>
+            {% for line in address %}
+            <p>{{ line }}</p>
+            {% endfor %}
+        </div>
+    </div>
+</main>
+{% endblock content %}

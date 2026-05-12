@@ -1,0 +1,12 @@
+{% extends "base_layout.html" %}
+{% block title %}Главная{% endblock title %}
+{% block content %}
+<main>
+    <div class="homepage">
+        <div class="homepage__hero">🐱</div>
+        <h1>{{ header }}</h1>
+        <p>{{ message }}</p>
+        <a href="{% url 'article_list' %}">Читать статьи →</a>
+    </div>
+</main>
+{% endblock content %}

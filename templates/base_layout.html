@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Default title{% endblock title %}</title>
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="/">📰 MyBlog</a>
+        </div>
+    <nav>
+        <a href="{% url 'article_list' %}">Статьи</a>
+        <a href="{% url 'about' %}">О нас</a>
+        <ul>
+            {% if user.is_authenticated %}
+            <li>
+                <form class="form" action="/accounts/logout/" method="post">
+                    {% csrf_token %}
+                   <button type="submit">Logout</button>
+                </form>
+            </li>
+            {% else %}
+            <li>
+                <a href="{% url 'login' %}">Login</a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+    </header>
+
+    {% block content %}{% endblock content %}
+
+    <footer>
+        <p>© 2026 MyBlog. Все права защищены.</p>
+    </footer>
+</body>
+</html>
