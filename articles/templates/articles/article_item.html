@@ -1,11 +1,24 @@
 {% extends "base_layout.html" %}
+{% load static %}
 {% block title %}{{ article.title }}{% endblock title %}
 {% block content %}
     <div class="article-detail">
-        <h1>{{ article.title }}</h1>
         {% if article.thumbnail %}
-        <img src="{{ article.thumbnail.url }}" alt="{{ article.title }}">
+        <img src="{{ article.thumbnail.url }}" alt="">
         {% endif %}
+        <h1>{{ article.title }}</h1>
         <p>{{ article.body }}</p>
+        {% if user.is_authenticated and user.id == article.author.id %}
+        <div>
+            <a class="btn btn-warning"
+               href="{% url 'articles:update' slug=article.slug %}">
+                Update
+            </a>
+            <a class="btn btn-danger"
+               href="{% url 'articles:delete' slug=article.slug %}">
+                Delete
+            </a>
+        </div>
+        {% endif %}
     </div>
 {% endblock content %}

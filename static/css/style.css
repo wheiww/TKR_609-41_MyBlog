@@ -72,16 +72,18 @@ footer {
     text-align: center;
     padding: 25px;
     background-color: #3b2a1a;
-    color: #e8c98a;
+    color: #c9a05a;
     margin-top: 60px;
     letter-spacing: 1px;
     font-size: 14px;
+    width: 100%;
 }
 
 main {
     max-width: 860px;
     margin: 50px auto;
-    padding: 0 20px;
+    padding: 0;
+}
 }
 
 h1 {
@@ -367,4 +369,32 @@ h1 {
 .form button:hover {
     background-color: #c9a05a;
     color: #3b2a1a;
+}
+
+@media (max-width: 768px) {
+    .homepage {
+        padding: 30px 20px;
+        margin: 20px auto;
+    }
+
+    .article__item img {
+        height: 150px;
+    }
+
+    .article-detail img {
+        max-height: 250px;
+    }
+
+    .article-detail {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    .form {
+        padding: 20px;
+        margin: 20px auto;
+    }
 }
