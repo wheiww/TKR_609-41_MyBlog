@@ -1,0 +1,13 @@
+{% extends "base_layout.html" %}
+{% load static %}
+{% block title %}Create article{% endblock title %}
+{% block content %}
+<div class="container mt-4">
+    <h1>Create article</h1>
+    <form class="form" action="{% url 'articles:create' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Create article</button>
+    </form>
+</div>
+{% endblock content %}
